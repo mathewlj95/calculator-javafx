@@ -659,7 +659,7 @@ if(x2==false){
     		   exp=exam.solve(Expression);
     		   */
     		  //error found here
-    		  exp=exam.solve2(exp);
+    		  exp=exam.solve(exp);
     		  textField.setText(exp);
     		   res=true;
      		 x2=false;

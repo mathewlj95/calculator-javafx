@@ -1,10 +1,129 @@
 package now;
 
+import java.io.*;
 import java.util.regex.Pattern;
 public class exam
-{
-
-//calculate sqrt for number
+{static public String solve(String exp)
+	{
+	  String [] newstring=new String[exp.length];
+	  String pop="";
+	  String res="";
+	  int i;
+	  int M=0;
+	 
+	  int j;
+	  for(i=0;i<exp.length;i++)
+	  {
+		  
+		  if(exp[i]=="(")
+            {    exp[i]="";
+			   for( j=i+1;exp[j]!=")";j++)
+			   {
+				   
+			       exp[i]+=exp[j];
+			     
+			       
+				   
+				   
+			   }
+			   
+            	  res=exam.Dooperation(exp[i]);
+                         	  
+            	 newstring[M]=res; 
+            	  M++;
+            	 i=j;
+            	  
+            }
+              else
+              {	  
+              newstring[M]=exp[i];
+              M++;
+              }
+		  
+		  
+		    
+	  }
+	   for(int ii=0;ii<newstring.length;ii++)
+     	{
+     		if(newstring[ii]!=null)
+     		  pop+=newstring[ii];
+     		
+     	}
+	   
+	   String Final="";
+	   String []check=exam.divide(pop);
+	   pop="";
+	   for(int jj=0;jj<check.length;jj++)
+	   {
+		   
+		   
+		 pop+=check[jj];
+		   
+	   
+	   }
+	   
+	  
+	 
+	 /*  for(int iii=0;iii<check.length;iii++)
+	   {            
+		  
+		   if(iii+1==check.length)
+			   break;
+		   
+		  
+		 
+		   if(check[iii]=="-"&check[iii+1].startsWith("-"))
+		   { 
+			   
+			   check[iii]="+"+check[iii+1].substring(1,check[iii+1].length());
+			   Final+=check[iii];
+			   
+			  
+			   
+		   }
+		   else if(check[iii]=="+"&check[iii].startsWith("-"))
+		   {
+			   
+			   check[iii]="-"+check[iii+1].substring(1,check[iii+1].length());
+			   
+			   Final+=check[iii];
+			   
+		   }
+		   else
+		   {
+			   
+		   Final+=check[iii];
+		   }
+		  
+		   
+		   
+	   }
+	   
+	   */
+	   String XX=exam.Dooperation(pop);
+	   
+	 
+	   
+	   
+	   
+	  return XX;
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	}
 static public String Sqr(String [] X)
 {       String [] newstring=new String[X.length];
 String pop="";
@@ -47,8 +166,8 @@ int M=0;
 		
 }
 
-//calculate power of number
-static public String ostwo(String [] X)
+		
+	static public String ostwo(String [] X)
 {       String [] newstring=new String[X.length];
 String pop="";
 int i;
@@ -95,61 +214,23 @@ int M=0;
      return pop;
 		
 }
-//divide expression to array of string
-static public  String[]  divide(String m)
+   static public  String[]  divide(String m)
 	{  
 	   int ii=0;
 	
-	  // int x=1;
+	   
 	 char []operations=new char[m.length()];
 	  String [] nums=new String[100];
-	  boolean mm=false;
-	  boolean mn =false;
 	   for(int i=0;i<m.length();i++)
 	   {
-		   
-		   
-		   
-		   
 		   operations[i]=m.charAt(i);
-		   if (operations[i]=='+'&mm==true)
-		   {
-			   nums[ii]="-";
-			   
-			   mm=false;
-			   
-			   
-		   }
-		   else if (operations[i]=='-'&mm==true)
-		   {
-			   nums[ii]="+";
-			   
-			   mm=false;
-			   
-			   
-		   }
-		   else if (operations[i]=='+'&mn==true)
-		   {
-			   nums[ii]="+";
-			   
-			   mn=false;
-			   
-			   
-		   }
-		   else if (operations[i]=='-'&mn==true)
-		   {
-			   nums[ii]="-";
-			   
-			   mn=false;
-			   
-			   
-		   }
-		   else if(operations[i]=='/')
+		   
+		   if(operations[i]=='/')
 		      { if (nums[ii]!=null)
 		    	  ii++;
 		    	   nums[ii]="/";
 		           ii++;
-		       
+		   
 		      }
 		   else if(operations[i]=='(')
 		      {
@@ -157,9 +238,8 @@ static public  String[]  divide(String m)
 				  ii++;
 				  nums[ii]="(";
 		    	  ii++;
-			 
-		    	    mn=false;
-		    	    mm=false;
+			    
+		    	    
 		      }
 			  else if(operations[i]==')')
 		      {
@@ -167,23 +247,21 @@ static public  String[]  divide(String m)
 				  ii++;
 				  nums[ii]=")";
 				  ii++;
-				  mn=false;
-		    	    mm=false;
-			
+				 
 		      }
 		   else if(operations[i]=='%')
 		      { if (nums[ii]!=null)
 		    	  ii++;
 		    	   nums[ii]="%";
 		           ii++;
-		        
+		         
 		      }
 		   else if(operations[i]=='S')
 		      { if (nums[ii]!=null)
 		    	  ii++;
 		    	   nums[ii]="S";
 		        
-		    
+		         
 		      }
 		
 		   else if(operations[i]=='*')
@@ -191,15 +269,21 @@ static public  String[]  divide(String m)
 		    	  ii++;
 		    	  nums[ii]="*";
 		    	  ii++;
-			   
+			    
 		      }
 		  else if(operations[i]=='+')
 		      {
 			  if (nums[ii]!=null)
 				  ii++;
 				  nums[ii]="+";
-			  mn=true; 	
-			  
+				  
+				/*  if(operations[i+1]=='-')
+				  {
+					  nums[ii]="-";
+					  ii++;
+					 i++;
+				  }
+				  */
 			    
 		      }
 		 
@@ -207,9 +291,16 @@ static public  String[]  divide(String m)
 		      { if (nums[ii]!=null)
 		    	  ii++;
 		    	  nums[ii]="-";
+		    	  /* 
+		    	     if(operations[i+1]=='-')
+		    	  
+				  {
+					  nums[ii]="+";
+					  ii++;
+					  i++; 
+				  }
+				   */
 		    	 
-		    	mm=true; 
-		    	
 		    	
 		      }
 		   
@@ -220,27 +311,21 @@ static public  String[]  divide(String m)
 		  {
 			     if(nums[ii]==null)
 				     nums[ii]="";
-			  nums[ii]+=m.charAt(i);
-			  mm=false;
-			  mn =false;
+			  nums[ii]+=m.charAt(i);;
 			 
 		  }
 		   
 		   
 	   }
-	  
-	   
-	   
 	   String [] newone=new String[ii+1];
 	   for(int iii=0;iii<ii+1;iii++)
-	   {   if(nums[iii]!=null)
+	   {
 		   newone[iii]=nums[iii];
 	   }
 	   return newone;
 	
 	
 	}
-//divide two numbers
 static public String div(String [] X)
 {       String [] newstring=new String[X.length];
 String pop="";
@@ -258,10 +343,7 @@ newstring[M]=X[0];
 		
 			if(X[i-1].startsWith("+"))
 	  			  newstring[M]="+"+Double.toString(a/b);
-			else if(X[i+1].startsWith("-")&X[i-1].startsWith("-"))
-	  			  newstring[M]="+"+Double.toString(a/b); 
-			
-			else
+	  		  else
 	  	     newstring[M]=Double.toString(a/b);
 		     
 			 
@@ -299,7 +381,6 @@ newstring[M]=X[0];
      return pop;
 		
 }
-//calculate modules
 static public String mod(String [] X)
 {       String [] newstring=new String[X.length];
 String pop="";
@@ -356,68 +437,9 @@ newstring[M]=X[0];
      return pop;
 		
 }
-//solve brackets if no found or finish and still expression go to dooperation
-static public String solve2(String X){      
-	  int result;
-	 double result2;
-    while(X.contains(Character.toString('('))||X.contains(Character.toString(')'))){
-        for(int I=0; I<X.length();I++){
-           try{                                                        //i there is not sign
-                if((X.charAt(I)==')' || Character.isDigit(X.charAt(I))) //between separate brackets
-                        && X.charAt(I+1)=='('){                         //or number and bracket,
-                   X=X.substring(0,I+1)+"*"+(X.substring(I+1));        //it treat it as
-                }                                                       //a multiplication
-           }
-           catch(StringIndexOutOfBoundsException e){}//ignore out of range ex
-            if(X.charAt(I)==')'){                                  //search for a closing bracket
-                for(int i=I; i>=0;i--){
-                    if(X.charAt(i)=='('){                          //search for a opening bracket
-                        String newexp = X.substring(i+1,I);
-                        newexp = exam.Dooperation(newexp);
-                        X=X.substring(0,i)+newexp+X.substring(I+1);
-                        i=I=0;
-                    }
-                }
-            }
-        }
-        if(X.contains(Character.toString('('))||X.contains(Character.toString(')'))||
-                X.contains(Character.toString('('))||X.contains(Character.toString(')'))){
-            return "Error: incorrect brackets";
-        }
-    }
-    
-    try{
-    	 X=exam.Dooperation(X);
-    		   result2 = Double.parseDouble(X);
-    		   result = (int) result2;
-    	if(result==result2)
-    	{
-    		X = Integer.toString(result);	
-    	}
-    		  
-    		
-    		}
-    		  catch (NumberFormatException e) {
-    			// TODO: handle exception
-    	X="Erorr Expression ";
-    		}
-    catch (ArrayIndexOutOfBoundsException e) {
-		// TODO: handle exception
-X="Erorr Expression ";
-	}
-    		
-
-    		  
-
-
-  // X=exam.Dooperation(X);
-    return X;
-}
-//do operations from operation with highest priority 
 static public String Dooperation(String X)
-{   
-	String XXXX=ostwo(divide(X));
-    String XXX=Sqr(divide(XXXX));
+{  String XXXX=ostwo(divide(X));
+   String XXX=Sqr(divide(XXXX));
 	String XX=mod(divide(XXX));
   	String C1=div(divide(XX));
   	String C=mul(divide(C1));
@@ -427,8 +449,7 @@ static public String Dooperation(String X)
 
 
 }
-//multiply two numbers
-static public String mul(String [] X)
+    static public String mul(String [] X)
     {       String [] newstring=new String[X.length];
     String pop="";
     int i;
@@ -448,8 +469,6 @@ static public String mul(String [] X)
     			
     		  if(X[i-1].startsWith("+"))
     			  newstring[M]="+"+Double.toString(a*b);
-    			else if(X[i+1].startsWith("-")&X[i-1].startsWith("-"))
-  	  			  newstring[M]="+"+Double.toString(a*b); 
     		  else
     	     newstring[M]=Double.toString(a*b);
     		 
@@ -477,14 +496,12 @@ static public String mul(String [] X)
     		if(newstring[ii]!=null)
     		  pop+=newstring[ii];
     		
-    		
     	}
     	
          return pop;
     		
     }
-//sum and sub expression
-static public String sumandsub(String[]X)
+    static public String sumandsub(String[]X)
     {
     	double x=0;
     	double y=0;
@@ -508,8 +525,28 @@ static public String sumandsub(String[]X)
     	
     	
     }
-    
-}
+   
+   
+    public static void main(String[] args) 
+	{
+	   
+	 String A="10+(20*10)";
+	    String[]X=exam.divide(A);
+	    
+	 
+	
+	
+	    System.out.println(exam.solve(X));
+	   
+	     
+	  
   
- 
+		
+
+	}
+
+	
+
+   }
+  
  
