@@ -1,6 +1,12 @@
 package now;
 
+/**
+ * this class is do operation what user want 
+ * first go to solve function then go to do operation 
+ * @param e
+ */
 import java.util.regex.Pattern;
+
 public class exam
 {
 

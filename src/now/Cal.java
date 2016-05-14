@@ -716,7 +716,12 @@ if(x2==false){
 				   
 			   }
     		   });
-    		   
+
+    			/**
+    			 * here we do it 4-5^ 
+    			 * 4-(5)^
+    			 * @param e
+    			 */
  xPower2.setOnMouseClicked(e->{
     exp+="^";
     int yy=0;
@@ -801,12 +806,19 @@ exp.charAt(i)=='%'||exp.charAt(i)=='/')&&i!=0)
     			mainPane.getChildren().addAll(textField,hb,hBox1,hBox2,hBox3,hBox4);
     	        Scene scene=new Scene(mainPane,410,500);
     			primaryStage.setTitle("Calculator");
-    			//primaryStage.setScene(scene);
-    		//	primaryStage.show();
-    		//	Rectangle2D visualBounds = Screen.getPrimary().getVisualBounds();
-    		      //  Scene scene = new Scene(mainPane, visualBounds.getWidth(), visualBounds.getHeight());
+    		/*
+    		 * 
+    		 * android project
+    		 * 
+    		 * 
+    		 * primaryStage.setScene(scene);
+    		   primaryStage.show();
+    		   Rectangle2D visualBounds = Screen.getPrimary().getVisualBounds();
+    		   Scene scene = new Scene(mainPane, visualBounds.getWidth(), visualBounds.getHeight());
 
-    		       // primaryStage.getIcons().add(new Image(Project.class.getResourceAsStream("/icon.png")));
+    		    primaryStage.getIcons().add(new Image(Project.class.getResourceAsStream("/icon.png")));
+    		 */
+    			
     		        primaryStage.setScene(scene);
     				primaryStage.setResizable(false);
 
