@@ -3,31 +3,31 @@ package now;
 import java.io.*;
 import java.util.regex.Pattern;
 public class exam
-{static public String solve(String exp)
+{static public String solve(String[]X)
 	{
-	  String [] newstring=new String[exp.length];
+	  String [] newstring=new String[X.length];
 	  String pop="";
 	  String res="";
 	  int i;
 	  int M=0;
 	 
 	  int j;
-	  for(i=0;i<exp.length;i++)
+	  for(i=0;i<X.length;i++)
 	  {
 		  
-		  if(exp[i]=="(")
-            {    exp[i]="";
-			   for( j=i+1;exp[j]!=")";j++)
+		  if(X[i]=="(")
+            {    X[i]="";
+			   for( j=i+1;X[j]!=")";j++)
 			   {
 				   
-			       exp[i]+=exp[j];
+			       X[i]+=X[j];
 			     
 			       
 				   
 				   
 			   }
 			   
-            	  res=exam.Dooperation(exp[i]);
+            	  res=exam.Dooperation(X[i]);
                          	  
             	 newstring[M]=res; 
             	  M++;
@@ -36,7 +36,7 @@ public class exam
             }
               else
               {	  
-              newstring[M]=exp[i];
+              newstring[M]=X[i];
               M++;
               }
 		  
