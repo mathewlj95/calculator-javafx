@@ -660,7 +660,7 @@ if(x2==false){
     		   */
     		  //error found here
     			   
-    		  exp=exam.solve2(exam.divide(exp));
+    		  exp=exam.solve2(exp);
     		  textField.setText(exp);
     		   res=true;
      		 x2=false;
