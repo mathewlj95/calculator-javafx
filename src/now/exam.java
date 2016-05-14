@@ -527,23 +527,7 @@ static public String Dooperation(String X)
     }
    
    
-    public static void main(String[] args) 
-	{
-	   
-	 String A="10+(20*10)";
-	    String[]X=exam.divide(A);
-	    
-	 
-	
-	
-	    System.out.println(exam.solve(X));
-	   
-	     
-	  
-  
-		
 
-	}
 
 	
 
